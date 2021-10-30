@@ -1,17 +1,154 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:gravity="center">
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:orientation="vertical"
+	android:gravity="center">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/main"
-        android:gravity="center"
-        android:textAppearance="?android:attr/textAppearanceLarge"/>
+	<ToggleButton
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginBottom="25dp"
+		android:textOn="❌"
+		android:textOff="⭕"
+		android:id="@+id/turn"
+		android:layout_margin="25dp"/>
+
+	<LinearLayout
+		android:orientation="vertical"
+		android:layout_width="310dp"
+		android:layout_height="310dp">
+
+		<LinearLayout
+			android:orientation="horizontal"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_weight="1.0">
+
+			<Button
+				android:layout_width="wrap_content"
+				android:layout_height="match_parent"
+				android:text=""
+				android:id="@+id/oxy0"
+				android:onClick="oxyClick"
+				android:layout_weight="1.0"
+				android:layout_margin="5dp"/>
+
+			<Button
+				android:layout_width="wrap_content"
+				android:layout_height="match_parent"
+				android:text=""
+				android:id="@+id/oxy1"
+				android:onClick="oxyClick"
+				android:layout_weight="1.0"
+				android:layout_margin="5dp"/>
+
+			<Button
+				android:layout_width="wrap_content"
+				android:layout_height="match_parent"
+				android:text=""
+				android:id="@+id/oxy2"
+				android:onClick="oxyClick"
+				android:layout_weight="1.0"
+				android:layout_margin="5dp"/>
+
+		</LinearLayout>
+
+		<LinearLayout
+			android:orientation="horizontal"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_weight="1.0">
+
+			<Button
+				android:layout_width="wrap_content"
+				android:layout_height="match_parent"
+				android:text=""
+				android:id="@+id/oxy3"
+				android:onClick="oxyClick"
+				android:layout_weight="1.0"
+				android:layout_margin="5dp"/>
+
+			<Button
+				android:layout_width="wrap_content"
+				android:layout_height="match_parent"
+				android:text=""
+				android:id="@+id/oxy4"
+				android:onClick="oxyClick"
+				android:layout_weight="1.0"
+				android:layout_margin="5dp"/>
+
+			<Button
+				android:layout_width="wrap_content"
+				android:layout_height="match_parent"
+				android:text=""
+				android:id="@+id/oxy5"
+				android:onClick="oxyClick"
+				android:layout_weight="1.0"
+				android:layout_margin="5dp"/>
+
+		</LinearLayout>
+
+		<LinearLayout
+			android:orientation="horizontal"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_weight="1.0">
+
+			<Button
+				android:layout_width="wrap_content"
+				android:layout_height="match_parent"
+				android:text=""
+				android:id="@+id/oxy6"
+				android:onClick="oxyClick"
+				android:layout_weight="1.0"
+				android:layout_margin="5dp"/>
+
+			<Button
+				android:layout_width="wrap_content"
+				android:layout_height="match_parent"
+				android:text=""
+				android:id="@+id/oxy7"
+				android:onClick="oxyClick"
+				android:layout_weight="1.0"
+				android:layout_margin="5dp"/>
+
+			<Button
+				android:layout_width="wrap_content"
+				android:layout_height="match_parent"
+				android:text=""
+				android:id="@+id/oxy8"
+				android:onClick="oxyClick"
+				android:layout_weight="1.0"
+				android:layout_margin="5dp"/>
+
+		</LinearLayout>
+
+	</LinearLayout>
+
+	<LinearLayout
+		android:orientation="horizontal"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="25dp">
+
+		<Button
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="restart"
+			android:onClick="onRestart"
+			android:layout_margin="25dp"/>
+
+		<Button
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="stop"
+			android:onClick="onStop"
+			android:layout_margin="25dp"/>
+
+	</LinearLayout>
 
 </LinearLayout>
+

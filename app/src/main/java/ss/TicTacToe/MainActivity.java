@@ -3,6 +3,7 @@ package ss.TicTacToe;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
+import android.view.View;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -11,9 +12,15 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-		TextView textView = (TextView)findViewById(R.id.main);
-        textView.setText("Shiva is Here 🤘\nYou Must Remember, Who am I. 😁");
-
     }
+	public void oxyClick(View view){
+		
+	}
+	public void onRestart(View view){
+		
+	}
+	public void onStop(View view){
+		
+	}
 }
 // © https://github.com/ShivaShirsath
