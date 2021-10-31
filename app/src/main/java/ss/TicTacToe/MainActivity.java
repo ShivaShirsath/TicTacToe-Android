@@ -86,7 +86,6 @@ public class MainActivity extends AppCompatActivity {
 		finish(); // Stop this old Activity
 	}
 	public void showDialog(String title){
-		//Creating dialog box
 		AlertDialog dialog = new AlertDialog.Builder(MainActivity.this)
 			.setTitle(title)
 			.setCancelable(false)
