@@ -33,54 +33,55 @@ public class MainActivity extends AppCompatActivity {
 
 	public void oxyClick(View view) {
 		clicks++;
+		turn.setClickable(false);
 		Button button = (Button) view;
 		button.setText(turn.isChecked() ? "❌" : "⭕");
 		button.setClickable(false);
 		button.setBackgroundColor(0x00000000);
 		if (checkGameOver(button.getText().toString()))
 			showDialog(button.getText().toString() + " is Winner !");
-		else if (clicks == 9) showDialog("⭕❌ ! Draw");
-		else turn.setChecked(!turn.isChecked());
+		else if (clicks == 9) 
+			showDialog("⭕❌ ! Draw");
+		else 
+			turn.setChecked(!turn.isChecked());
 	}
 
 	public boolean checkGameOver(String turnText) {
-		return (
-				(
-						((Button) findViewById(R.id.oxy0)).getText().toString().contains(turnText) &&
-								((Button) findViewById(R.id.oxy1)).getText().toString().contains(turnText) &&
-								((Button) findViewById(R.id.oxy2)).getText().toString().contains(turnText)
-				) || (
-						((Button) findViewById(R.id.oxy3)).getText().toString().contains(turnText) &&
-								((Button) findViewById(R.id.oxy4)).getText().toString().contains(turnText) &&
-								((Button) findViewById(R.id.oxy5)).getText().toString().contains(turnText)
-				) || (
-						((Button) findViewById(R.id.oxy6)).getText().toString().contains(turnText) &&
-								((Button) findViewById(R.id.oxy7)).getText().toString().contains(turnText) &&
-								((Button) findViewById(R.id.oxy8)).getText().toString().contains(turnText)
-				) || (
-						((Button) findViewById(R.id.oxy0)).getText().toString().contains(turnText) &&
-								((Button) findViewById(R.id.oxy3)).getText().toString().contains(turnText) &&
-								((Button) findViewById(R.id.oxy6)).getText().toString().contains(turnText)
-				) || (
-						((Button) findViewById(R.id.oxy1)).getText().toString().contains(turnText) &&
-								((Button) findViewById(R.id.oxy4)).getText().toString().contains(turnText) &&
-								((Button) findViewById(R.id.oxy7)).getText().toString().contains(turnText)
-				) || (
-						((Button) findViewById(R.id.oxy2)).getText().toString().contains(turnText) &&
-								((Button) findViewById(R.id.oxy5)).getText().toString().contains(turnText) &&
-								((Button) findViewById(R.id.oxy8)).getText().toString().contains(turnText)
-				) || (
-						((Button) findViewById(R.id.oxy0)).getText().toString().contains(turnText) &&
-								((Button) findViewById(R.id.oxy4)).getText().toString().contains(turnText) &&
-								((Button) findViewById(R.id.oxy8)).getText().toString().contains(turnText)
-				) || (
-						((Button) findViewById(R.id.oxy2)).getText().toString().contains(turnText) &&
-								((Button) findViewById(R.id.oxy4)).getText().toString().contains(turnText) &&
-								((Button) findViewById(R.id.oxy6)).getText().toString().contains(turnText)
-				)
+		return 	(
+				((Button) findViewById(R.id.oxy0)).getText().toString().contains(turnText) &&
+				((Button) findViewById(R.id.oxy1)).getText().toString().contains(turnText) &&
+				((Button) findViewById(R.id.oxy2)).getText().toString().contains(turnText)
+			) || (
+				((Button) findViewById(R.id.oxy3)).getText().toString().contains(turnText) &&
+				((Button) findViewById(R.id.oxy4)).getText().toString().contains(turnText) &&
+				((Button) findViewById(R.id.oxy5)).getText().toString().contains(turnText)
+			) || (
+				((Button) findViewById(R.id.oxy6)).getText().toString().contains(turnText) &&
+				((Button) findViewById(R.id.oxy7)).getText().toString().contains(turnText) &&
+				((Button) findViewById(R.id.oxy8)).getText().toString().contains(turnText)
+			) || (
+				((Button) findViewById(R.id.oxy0)).getText().toString().contains(turnText) &&
+				((Button) findViewById(R.id.oxy3)).getText().toString().contains(turnText) &&
+				((Button) findViewById(R.id.oxy6)).getText().toString().contains(turnText)
+			) || (
+				((Button) findViewById(R.id.oxy1)).getText().toString().contains(turnText) &&
+				((Button) findViewById(R.id.oxy4)).getText().toString().contains(turnText) &&
+				((Button) findViewById(R.id.oxy7)).getText().toString().contains(turnText)
+			) || (
+				((Button) findViewById(R.id.oxy2)).getText().toString().contains(turnText) &&
+				((Button) findViewById(R.id.oxy5)).getText().toString().contains(turnText) &&
+				((Button) findViewById(R.id.oxy8)).getText().toString().contains(turnText)
+			) || (
+				((Button) findViewById(R.id.oxy0)).getText().toString().contains(turnText) &&
+				((Button) findViewById(R.id.oxy4)).getText().toString().contains(turnText) &&
+				((Button) findViewById(R.id.oxy8)).getText().toString().contains(turnText)
+			) || (
+				((Button) findViewById(R.id.oxy2)).getText().toString().contains(turnText) &&
+				((Button) findViewById(R.id.oxy4)).getText().toString().contains(turnText) &&
+				((Button) findViewById(R.id.oxy6)).getText().toString().contains(turnText)
 		);
 	}
-
+	
 	public void onRestart(View view) {
 		Toast.makeText(getApplicationContext(), "ReStarted", Toast.LENGTH_SHORT).show();
 		startActivity(getBaseContext().getPackageManager().getLaunchIntentForPackage(getBaseContext().getPackageName()).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)); // Start this new Activity
@@ -89,14 +90,15 @@ public class MainActivity extends AppCompatActivity {
 
 	public void showDialog(String title) {
 		AlertDialog dialog = new AlertDialog.Builder(MainActivity.this)
-				.setTitle(title)
-				.setCancelable(false)
-				.setPositiveButton("Restart", new DialogInterface.OnClickListener() {
-					@Override
-					public void onClick(DialogInterface dialog, int which) {
-						onRestart(new View(MainActivity.this));
-					}
-				}).create();
+			.setTitle(title)
+			.setCancelable(false)
+			.setPositiveButton("↻ restart ↺", new DialogInterface.OnClickListener() {
+				@Override
+				public void onClick(DialogInterface dialog, int which) {
+					onRestart(new View(MainActivity.this));
+				}
+			})
+			.create();
 		turn.setText(title);
 		dialog.show();
 	}

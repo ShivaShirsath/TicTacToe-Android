@@ -109,6 +109,9 @@
 # onClick res/layout/activity_main.xml #generated:149
 -keepclassmembers class * { *** onRestart(...); }
 
+# onClick res/layout/activity_main.xml #generated:10
+-keepclassmembers class * { *** onTurnChange(...); }
+
 # onClick res/layout/activity_main.xml #generated:108
 # onClick res/layout/activity_main.xml #generated:118
 # onClick res/layout/activity_main.xml #generated:128
