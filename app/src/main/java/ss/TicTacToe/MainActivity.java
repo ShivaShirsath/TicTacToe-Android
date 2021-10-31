@@ -1,6 +1,5 @@
 package ss.TicTacToe;
 
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
@@ -11,6 +10,7 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 import android.widget.ToggleButton;
+import android.content.DialogInterface;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -26,9 +26,8 @@ public class MainActivity extends AppCompatActivity {
 		setContentView(R.layout.activity_main);
 
 		mainLayout = (LinearLayout) findViewById(R.id.mainLayout);
-		subLayout = (LinearLayout) findViewById(R.id.subLayout);
-		turn = (ToggleButton) findViewById(R.id.turn);
-
+		subLayout  = (LinearLayout) findViewById(R.id.subLayout);
+		turn       = (ToggleButton) findViewById(R.id.turn);
 	}
 
 	public void oxyClick(View view) {
@@ -47,38 +46,21 @@ public class MainActivity extends AppCompatActivity {
 	}
 
 	public boolean checkGameOver(String turnText) {
-		return 	(
-				((Button) findViewById(R.id.oxy0)).getText().toString().contains(turnText) &&
-				((Button) findViewById(R.id.oxy1)).getText().toString().contains(turnText) &&
-				((Button) findViewById(R.id.oxy2)).getText().toString().contains(turnText)
-			) || (
-				((Button) findViewById(R.id.oxy3)).getText().toString().contains(turnText) &&
-				((Button) findViewById(R.id.oxy4)).getText().toString().contains(turnText) &&
-				((Button) findViewById(R.id.oxy5)).getText().toString().contains(turnText)
-			) || (
-				((Button) findViewById(R.id.oxy6)).getText().toString().contains(turnText) &&
-				((Button) findViewById(R.id.oxy7)).getText().toString().contains(turnText) &&
-				((Button) findViewById(R.id.oxy8)).getText().toString().contains(turnText)
-			) || (
-				((Button) findViewById(R.id.oxy0)).getText().toString().contains(turnText) &&
-				((Button) findViewById(R.id.oxy3)).getText().toString().contains(turnText) &&
-				((Button) findViewById(R.id.oxy6)).getText().toString().contains(turnText)
-			) || (
-				((Button) findViewById(R.id.oxy1)).getText().toString().contains(turnText) &&
-				((Button) findViewById(R.id.oxy4)).getText().toString().contains(turnText) &&
-				((Button) findViewById(R.id.oxy7)).getText().toString().contains(turnText)
-			) || (
-				((Button) findViewById(R.id.oxy2)).getText().toString().contains(turnText) &&
-				((Button) findViewById(R.id.oxy5)).getText().toString().contains(turnText) &&
-				((Button) findViewById(R.id.oxy8)).getText().toString().contains(turnText)
-			) || (
-				((Button) findViewById(R.id.oxy0)).getText().toString().contains(turnText) &&
-				((Button) findViewById(R.id.oxy4)).getText().toString().contains(turnText) &&
-				((Button) findViewById(R.id.oxy8)).getText().toString().contains(turnText)
-			) || (
-				((Button) findViewById(R.id.oxy2)).getText().toString().contains(turnText) &&
-				((Button) findViewById(R.id.oxy4)).getText().toString().contains(turnText) &&
-				((Button) findViewById(R.id.oxy6)).getText().toString().contains(turnText)
+		return check(R.id.oxy0, R.id.oxy1, R.id.oxy2, turnText)
+			|| check(R.id.oxy3, R.id.oxy4, R.id.oxy5, turnText)
+			|| check(R.id.oxy6, R.id.oxy7, R.id.oxy8, turnText)
+			|| check(R.id.oxy0, R.id.oxy3, R.id.oxy6, turnText)
+			|| check(R.id.oxy1, R.id.oxy4, R.id.oxy7, turnText)
+			|| check(R.id.oxy2, R.id.oxy5, R.id.oxy8, turnText)
+			|| check(R.id.oxy0, R.id.oxy4, R.id.oxy8, turnText)
+			|| check(R.id.oxy2, R.id.oxy4, R.id.oxy6, turnText)
+		;
+	}
+	public boolean check(int id0, int id1, int id2, String turnText){
+		return (
+			((Button) findViewById(id0)).getText().toString().contains(turnText) &&
+			((Button) findViewById(id1)).getText().toString().contains(turnText) &&
+			((Button) findViewById(id2)).getText().toString().contains(turnText)
 		);
 	}
 	
@@ -112,7 +94,6 @@ public class MainActivity extends AppCompatActivity {
 		if (backPressedTime + 2000 > System.currentTimeMillis()) {
 			super.onBackPressed();
 			finish();
-			return;
 		} else {
 			Toast.makeText(getBaseContext(), "Do again for exit.", Toast.LENGTH_SHORT).show();
 		}
