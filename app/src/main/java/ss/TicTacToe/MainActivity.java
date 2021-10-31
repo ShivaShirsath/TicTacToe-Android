@@ -15,7 +15,7 @@ import android.widget.ToggleButton;
 public class MainActivity extends AppCompatActivity {
 
 	private long backPressedTime = 0;
-	private Bundle state;
+
 	private LinearLayout mainLayout, subLayout;
 	private int clicks = 0;
 	private ToggleButton turn ;
@@ -23,7 +23,6 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-		state = savedInstanceState;
         setContentView(R.layout.activity_main);
 
 		mainLayout = (LinearLayout)findViewById(R.id.mainLayout);
@@ -39,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
 		button.setClickable(false);
 		button.setBackgroundColor(0x00000000);
 		if (checkGameOver(button.getText().toString())) showDialog(button.getText().toString() + " is Winner !");
-		else if (clicks == 9) showDialog("⭕❌ ! Game is Draw"); else turn.setChecked(!turn.isChecked());
+		else if (clicks == 9) showDialog("⭕❌ ! Draw"); else turn.setChecked(!turn.isChecked());
 	}
 	public boolean checkGameOver(String turnText) {
 		return (
