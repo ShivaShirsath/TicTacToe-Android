@@ -11,13 +11,14 @@ import android.content.res.Configuration;
 import android.widget.LinearLayout;
 import android.os.PersistableBundle;
 import android.widget.ToggleButton;
+import android.support.v7.app.AlertDialog;
+import android.content.DialogInterface;
 
 public class MainActivity extends AppCompatActivity {
 
 	private long backPressedTime = 0;
 	private Bundle state;
 	private LinearLayout mainLayout, subLayout;
-	private boolean isGameOver = false;
 	private int clicks = 0;
 	private ToggleButton turn ;
 	
@@ -39,7 +40,8 @@ public class MainActivity extends AppCompatActivity {
 		button.setText(turn.isChecked() ? "❌" : "⭕");
 		button.setClickable(false);
 		button.setBackgroundColor(0x00000000);
-		if (checkGameOver(button.getText().toString())) Toast.makeText(this, turn.getText().toString() + " is Winner", Toast.LENGTH_LONG).show(); else if (clicks == 9) Toast.makeText(this, "Game is Draw", Toast.LENGTH_LONG).show(); else turn.setChecked(!turn.isChecked());
+		if (checkGameOver(button.getText().toString())) showDialog(button.getText().toString() + " is Winner !");
+		else if (clicks == 9) showDialog("OXY ! Game is Draw"); else turn.setChecked(!turn.isChecked());
 	}
 	public boolean checkGameOver(String turnText) {
 		return (
@@ -80,9 +82,21 @@ public class MainActivity extends AppCompatActivity {
 	}
 	public void onRestart(View view) {
 		Toast.makeText(getApplicationContext(), "ReStarted", Toast.LENGTH_SHORT).show();
-
-		startActivity(getBaseContext().getPackageManager().getLaunchIntentForPackage(getBaseContext().getPackageName()).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
-		finish();
+		startActivity(getBaseContext().getPackageManager().getLaunchIntentForPackage(getBaseContext().getPackageName()).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)); // Start this new Activity
+		finish(); // Stop this old Activity
+	}
+	public void showDialog(String title){
+		//Creating dialog box
+		AlertDialog dialog = new AlertDialog.Builder(MainActivity.this)
+			.setTitle(title)
+			.setCancelable(false)
+			.setPositiveButton("Restart", new DialogInterface.OnClickListener() {
+				@Override
+				public void onClick(DialogInterface dialog, int which) {
+					onRestart(new View(MainActivity.this));
+				}
+			}).create();
+		dialog.show();
 	}
 	public void onExit(View view) {
 		onBackPressed();
@@ -100,7 +114,7 @@ public class MainActivity extends AppCompatActivity {
 	@Override
 	public void onConfigurationChanged(Configuration newConfig) {
 		super.onConfigurationChanged(newConfig);
-		// Checks the orientation of the screen
+		
 		if (newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE) {
 			mainLayout.setOrientation(LinearLayout.HORIZONTAL);
 			subLayout.setOrientation(LinearLayout.VERTICAL);
