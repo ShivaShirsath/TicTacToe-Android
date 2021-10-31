@@ -1,18 +1,16 @@
 package ss.TicTacToe;
 
-import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.widget.TextView;
-import android.view.View;
-import android.widget.Button;
-import android.widget.Toast;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Configuration;
-import android.widget.LinearLayout;
-import android.os.PersistableBundle;
-import android.widget.ToggleButton;
+import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
-import android.content.DialogInterface;
+import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.Toast;
+import android.widget.ToggleButton;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -21,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
 	private LinearLayout mainLayout, subLayout;
 	private int clicks = 0;
 	private ToggleButton turn ;
-	
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
 		button.setClickable(false);
 		button.setBackgroundColor(0x00000000);
 		if (checkGameOver(button.getText().toString())) showDialog(button.getText().toString() + " is Winner !");
-		else if (clicks == 9) showDialog("OXY ! Game is Draw"); else turn.setChecked(!turn.isChecked());
+		else if (clicks == 9) showDialog("⭕❌ ! Game is Draw"); else turn.setChecked(!turn.isChecked());
 	}
 	public boolean checkGameOver(String turnText) {
 		return (
@@ -85,7 +83,7 @@ public class MainActivity extends AppCompatActivity {
 		startActivity(getBaseContext().getPackageManager().getLaunchIntentForPackage(getBaseContext().getPackageName()).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)); // Start this new Activity
 		finish(); // Stop this old Activity
 	}
-	public void showDialog(String title){
+	public void showDialog(String title) {
 		AlertDialog dialog = new AlertDialog.Builder(MainActivity.this)
 			.setTitle(title)
 			.setCancelable(false)
@@ -95,6 +93,7 @@ public class MainActivity extends AppCompatActivity {
 					onRestart(new View(MainActivity.this));
 				}
 			}).create();
+		turn.setText(title);
 		dialog.show();
 	}
 	public void onExit(View view) {
@@ -113,7 +112,7 @@ public class MainActivity extends AppCompatActivity {
 	@Override
 	public void onConfigurationChanged(Configuration newConfig) {
 		super.onConfigurationChanged(newConfig);
-		
+
 		if (newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE) {
 			mainLayout.setOrientation(LinearLayout.HORIZONTAL);
 			subLayout.setOrientation(LinearLayout.VERTICAL);
