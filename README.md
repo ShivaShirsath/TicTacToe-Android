@@ -1,3 +1,3 @@
 # TicTacToe-Android
 
-[![](../../actions/workflows/main.yml/badge.svg)](../../actions/workflows/main.yml)
+<a href=../../actions/workflows/main.yml><img src=../../actions/workflows/main.yml/badge.svg></img></a>
