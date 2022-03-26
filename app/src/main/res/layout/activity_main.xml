@@ -16,7 +16,7 @@
 		<ToggleButton
 			android:id="@+id/turn"
 			android:layout_width="match_parent"
-			android:layout_height="match_parent"
+			android:layout_height="wrap_content"
 			android:checked="true"
 			android:textOff="Turn of ⭕"
 			android:textOn="Turn of ❌"
@@ -206,11 +206,12 @@
 			android:orientation="horizontal"
 			android:layout_width="match_parent"
 			android:layout_height="match_parent"
-			android:layout_weight="1.0">
+			android:layout_weight="1.0"
+			android:gravity="center">
 
 			<Button
 				android:layout_width="match_parent"
-				android:layout_height="match_parent"
+				android:layout_height="wrap_content"
 				android:onClick="onRestart"
 				android:text="restart"/>
 
@@ -221,11 +222,12 @@
 			android:orientation="horizontal"
 			android:layout_width="match_parent"
 			android:layout_height="match_parent"
-			android:layout_weight="1.0">
+			android:layout_weight="1.0"
+			android:gravity="center">
 
 			<Button
 				android:layout_width="match_parent"
-				android:layout_height="match_parent"
+				android:layout_height="wrap_content"
 				android:onClick="onExit"
 				android:text="exit"/>
 
