@@ -15,7 +15,7 @@
 
         <ToggleButton
             android:id="@+id/turn"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:checked="true"
             android:textOff="Turn of ⭕"
@@ -44,8 +44,8 @@
 
                 <Button
                     android:id="@+id/oxy0"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     android:onClick="oxyClick"
                     android:text=""
                     android:textSize="60sp"/>
@@ -59,8 +59,8 @@
 
                 <Button
                     android:id="@+id/oxy1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     android:onClick="oxyClick"
                     android:text=""
                     android:textSize="60sp"/>
@@ -74,8 +74,8 @@
 
                 <Button
                     android:id="@+id/oxy2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     android:onClick="oxyClick"
                     android:text=""
                     android:textSize="60sp"/>
@@ -97,8 +97,8 @@
 
                 <Button
                     android:id="@+id/oxy3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     android:onClick="oxyClick"
                     android:text=""
                     android:textSize="60sp"/>
@@ -112,8 +112,8 @@
 
                 <Button
                     android:id="@+id/oxy4"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     android:onClick="oxyClick"
                     android:text=""
                     android:textSize="60sp"/>
@@ -127,8 +127,8 @@
 
                 <Button
                     android:id="@+id/oxy5"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     android:onClick="oxyClick"
                     android:text=""
                     android:textSize="60sp"/>
@@ -150,8 +150,8 @@
 
                 <Button
                     android:id="@+id/oxy6"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     android:onClick="oxyClick"
                     android:text=""
                     android:textSize="60sp"/>
@@ -165,8 +165,8 @@
 
                 <Button
                     android:id="@+id/oxy7"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     android:onClick="oxyClick"
                     android:text=""
                     android:textSize="60sp"/>
@@ -180,8 +180,8 @@
 
                 <Button
                     android:id="@+id/oxy8"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     android:onClick="oxyClick"
                     android:text=""
                     android:textSize="60sp"/>
@@ -215,7 +215,6 @@
                 android:text="restart"/>
 
         </LinearLayout>
-
 
         <LinearLayout
             android:padding="1dp"
